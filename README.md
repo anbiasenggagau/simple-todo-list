@@ -39,7 +39,7 @@ MYSQL_PORT: 3306
 
 After setting up all the environment variables, on command prompt, you can execute theese code to run the app
 ```
-docker-compose -f docker-compose.yml up -d --build
+docker-compose -f docker-compose.prod.yml up -d --build
 ```
 
 You also could access the example request using Postman. You can access the file in directory named "Postman Request" and import the files to your local Postman. I encourage you to use Postman to get better understanding.
