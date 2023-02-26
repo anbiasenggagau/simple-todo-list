@@ -3,7 +3,7 @@
 This an example of Todo List API, using [NodeJS](https://nodejs.org/).
 
 ## Instalation
-This App requires [NodeJS](https://nodejs.org/) v14+ and [MySQL](https://www.mysql.com/) Database to run.
+This App requires [NodeJS](https://nodejs.org/) v14+ and [MySQL](https://www.mysql.com/) Database to run, and also don't forget to create the database/schema you would to connect to, you can freely change database/schema name in environments variable.
 
 ### Running on local machine
 
