@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
     MYSQL_USER: process.env.MYSQL_USER || 'root',
     MYSQL_PASSWORD: process.env.MYSQL_PASSWORD || '',

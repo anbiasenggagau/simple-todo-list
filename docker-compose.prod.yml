@@ -16,5 +16,5 @@ services:
       - 3030:3030
     command: npm run start
 
-# docker-compose -f docker-compose.debug.yml up -d --build
-# docker-compose -f docker-compose.debug.yml down -v
+# docker-compose -f docker-compose.prod.yml up -d --build
+# docker-compose -f docker-compose.prod.yml down -v
