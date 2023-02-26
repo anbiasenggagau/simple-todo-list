@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  todo-list:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
+      MYSQL_DBNAME: todo4
+      MYSQL_HOST: host.docker.internal
+      MYSQL_PORT: 3306
+    ports:
+      - 3030:3030
+    command: npm run start
+
+# docker-compose -f docker-compose.debug.yml up -d --build
+# docker-compose -f docker-compose.debug.yml down -v
