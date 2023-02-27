@@ -9,7 +9,7 @@ router.get('/todo-items', async (req, res) => {
         if (activity_group_id) todos = await Todo.findAll({ where: { activity_group_id } })
         else todos = await Todo.findAll()
 
-        if (todos == 0) res.status(404).json({
+        if (todos == 0) return res.status(404).json({
             status: 'Not Found',
             message: 'Cannot find selected todos'
         })
@@ -20,6 +20,7 @@ router.get('/todo-items', async (req, res) => {
             data: todos
         })
     } catch (error) {
+        console.log(error.message)
         res.sendStatus(500)
     }
 })
@@ -39,6 +40,7 @@ router.get('/todo-items/:id', async (req, res) => {
         })
 
     } catch (error) {
+        console.log(error.message)
         res.sendStatus(500)
     }
 })
@@ -63,6 +65,7 @@ router.post('/todo-items', async (req, res) => {
             res.status(400).json({ status: 'Bad Request', message: error.message })
         }
     } catch (error) {
+        console.log(error.message)
         res.sendStatus(500)
     }
 })
@@ -111,6 +114,7 @@ router.patch('/todo-items/:id', async (req, res) => {
             res.status(400).json({ status: 'Bad Request', message: error.message })
         }
     } catch (error) {
+        console.log(error.message)
         res.sendStatus(500)
     }
 })
@@ -135,6 +139,7 @@ router.delete('/todo-items/:id', async (req, res) => {
             data: {}
         })
     } catch (error) {
+        console.log(error.message)
         res.sendStatus(500)
     }
 })

@@ -9,6 +9,7 @@ router.get('/activity-groups', async (req, res) => {
             data: await Activity.findAll()
         })
     } catch (error) {
+        console.log(error.message)
         res.sendStatus(500)
     }
 })
@@ -28,6 +29,7 @@ router.get('/activity-groups/:id', async (req, res) => {
         })
 
     } catch (error) {
+        console.log(error.message)
         res.sendStatus(500)
     }
 })
@@ -50,6 +52,7 @@ router.post('/activity-groups', async (req, res) => {
             res.status(400).json({ status: 'Bad Request', message: error.message })
         }
     } catch (error) {
+        console.log(error.message)
         res.sendStatus(500)
     }
 })
@@ -90,6 +93,7 @@ router.patch('/activity-groups/:id', async (req, res) => {
             res.status(400).json({ status: 'Bad Request', message: error.message })
         }
     } catch (error) {
+        console.log(error.message)
         res.sendStatus(500)
     }
 })
@@ -114,6 +118,7 @@ router.delete('/activity-groups/:id', async (req, res) => {
             data: {}
         })
     } catch (error) {
+        console.log(error.message)
         res.sendStatus(500)
     }
 })

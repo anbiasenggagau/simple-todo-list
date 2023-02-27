@@ -12,7 +12,6 @@ const Todo = mySql.define('Todo', {
     },
     activity_group_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         references: {
             model: 'Activities',
             key: 'activity_id',
@@ -27,6 +26,7 @@ const Todo = mySql.define('Todo', {
     is_active: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
+        defaultValue: true
     },
     priority: {
         type: DataTypes.STRING,

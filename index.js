@@ -13,6 +13,20 @@ const TodoRouter = require('./Controller/TodosController')
 const Todo = require('./model/Todos')
 const todoSeed = require('./model/seeding/todoSeeding')
 
+app.use((req, res, next) => {
+    console.log('Route : ' + req.path)
+    console.log('Method : ' + req.method)
+    console.log('Param : ')
+    console.log(req.params)
+    console.log('Query : ')
+    console.log(req.query)
+    console.log('Body : ')
+    console.log(req.body)
+    console.log()
+
+    next()
+})
+
 app.use('/', ActivityRouter)
 app.use('/', TodoRouter)
 
