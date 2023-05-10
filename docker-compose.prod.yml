@@ -5,16 +5,24 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+    image: anbiasenggagau/todo-list
     environment:
       NODE_ENV: production
       MYSQL_USER: root
-      MYSQL_PASSWORD:
-      MYSQL_DBNAME: todo4
-      MYSQL_HOST: host.docker.internal
+      MYSQL_PASSWORD: supersecret
+      MYSQL_DBNAME: mysql
+      MYSQL_HOST: mysql
       MYSQL_PORT: 3306
     ports:
       - 3030:3030
     command: npm run start
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: supersecret
 
 # docker-compose -f docker-compose.prod.yml up -d --build
 # docker-compose -f docker-compose.prod.yml down -v

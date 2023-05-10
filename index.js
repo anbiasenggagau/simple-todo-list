@@ -30,23 +30,23 @@ app.use((req, res, next) => {
 app.use('/', ActivityRouter)
 app.use('/', TodoRouter)
 
-connectDatabse(mySql).then(seedDatabase)
+connectDatabse()
 
 app.listen(3030, () => {
     console.log('Listening to port 3030')
 })
 
-async function connectDatabse(client) {
-    try {
-        await client.authenticate();
-        console.log('Connected to databse')
-        await client.sync({ alter: true, force: true })
-
-    } catch (error) {
-        console.log(error)
-        console.log('Retry to connect within 5 seconds')
-        setTimeout(connectDatabse(client), 20000)
-    }
+function connectDatabse() {
+    mySql.authenticate()
+        .then(async () => {
+            console.log('Connected to databse')
+            await mySql.sync({ alter: true, force: true })
+        })
+        .catch(error => {
+            console.log(error)
+            console.log("\nTrying to reconnect in 5 seconds...")
+            setTimeout(connectDatabse, 5000)
+        });
 }
 
 async function seedDatabase() {

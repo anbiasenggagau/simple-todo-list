@@ -50,7 +50,7 @@ router.post('/todo-items', async (req, res) => {
 
     if (title === undefined || title === '') return res.status(400).json({ status: 'Bad Request', message: 'title cannot be null' })
     if (activity_group_id === undefined || activity_group_id === '') return res.status(400).json({ status: 'Bad Request', message: 'activity_group_id cannot be null' })
-    if (is_active === undefined || is_active === '') return res.status(400).json({ status: 'Bad Request', message: 'is_active cannot be null' })
+    if (is_active === undefined || is_active === '') is_active = true
     if (priority === undefined) priority = 'very-high'
 
     try {

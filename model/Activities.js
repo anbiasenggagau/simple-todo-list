@@ -10,11 +10,11 @@ const Activity = mySql.define('Activity', {
     },
     title: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         validate: {
             isEmail: { msg: 'Please insert correct email' }
         }
