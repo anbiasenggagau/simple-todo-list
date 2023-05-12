@@ -93,7 +93,7 @@ router.patch('/todo-items/:id', async (req, res) => {
                     priority
                 }, {
                 where: {
-                    todo_id: req.params.id
+                    id: req.params.id
                 }
             }
             )
@@ -123,7 +123,7 @@ router.delete('/todo-items/:id', async (req, res) => {
     try {
         const todo = await Todo.destroy({
             where: {
-                todo_id: req.params.id
+                id: req.params.id
             }
         })
 

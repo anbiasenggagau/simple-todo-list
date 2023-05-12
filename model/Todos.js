@@ -4,8 +4,8 @@ const Activity = require('./Activities')
 
 const priorityErrorMessage = 'Priority value is not allowed, these are allowed value : Very High, High, Medium, Low, Very Low'
 
-const Todo = mySql.define('Todo', {
-    todo_id: {
+const Todo = mySql.define('todo', {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
@@ -13,8 +13,8 @@ const Todo = mySql.define('Todo', {
     activity_group_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'Activities',
-            key: 'activity_id',
+            model: 'activities',
+            key: 'id',
         },
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'

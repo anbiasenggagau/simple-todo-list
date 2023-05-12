@@ -2,8 +2,8 @@ const { DataTypes } = require('sequelize')
 const mySql = require('./conecction')
 const Todo = require('./Todos')
 
-const Activity = mySql.define('Activity', {
-    activity_id: {
+const Activity = mySql.define('activity', {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,

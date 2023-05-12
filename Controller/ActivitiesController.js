@@ -72,7 +72,7 @@ router.patch('/activity-groups/:id', async (req, res) => {
                     email
                 }, {
                 where: {
-                    activity_id: req.params.id
+                    id: req.params.id
                 }
             }
             )
@@ -102,7 +102,7 @@ router.delete('/activity-groups/:id', async (req, res) => {
     try {
         const activity = await Activity.destroy({
             where: {
-                activity_id: req.params.id
+                id: req.params.id
             }
         })
 
